@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Identity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --background: #0a192f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Image Section */
+        .image-container {
+            height: 400px;
+            position: relative;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 50%, var(--background) 90%);
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Bio Card */
+        .bio-card {
+            position: relative;
+            background: rgba(18, 40, 76, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: -50px auto 2rem;
+            max-width: 600px;
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .bio-card::before,
+        .bio-card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, #4a90e2, #1a237e, #4a90e2);
+            border-radius: inherit;
+            /*animation: rotate 4s linear infinite;*/
+        }
+
+        .bio-card::after {
+            filter: blur(20px);
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Buttons Section */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            background: rgba(74, 144, 226, 0.2);
+            box-shadow: 0 0 15px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .image-container {
+                height: 300px;
+            }
+
+            .bio-card {
+                margin-top: -30px;
+                padding: 1.5rem;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="photo.jpg" alt="Profile Image" class="profile-img">
+        </div>
+
+        <!-- Bio Card -->
+        <div class="bio-card">
+            <h2>ABU HUZAIFA</h2>
+            <p>Studying at Khulna Public College(KPC). Next year SSC examinee. Expert in Mathematics, Physics, and Chemistry. Good at IT including MS Word, microcontrollers, code algorithm and video edit.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="buttons-container">
+            <button class="action-btn"><a href="mailto:itshuzaifa2000@gmail.com">
+                <i class="fas fa-envelope"></i>
+                E-mail
+            </a></button>
+            <button class="action-btn"><a href="https://www.kpcbd.edu.bd">
+                <i class="fas fa-school"></i>
+                School
+            </a></button>
+            <button class="action-btn"><a href="tel:01947762071">
+                <i class="fas fa-phone"></i>
+                Phone Call
+            </a></button>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
